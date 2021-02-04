@@ -6,8 +6,13 @@ plugins {
 group 'org.geogre'
 version '1.0-SNAPSHOT'
 
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven { url "https://dl.bintray.com/arrow-kt/arrow-kt/" }
+        maven { url 'https://oss.jfrog.org/artifactory/oss-snapshot-local/' } // for SNAPSHOT builds
+    }
 }
 
 dependencies {
@@ -18,6 +23,16 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
 
+
 test {
     useJUnitPlatform()
+}
+
+apply plugin: 'kotlin-kapt'
+
+def arrow_version = "0.11.0"
+dependencies {
+    implementation "io.arrow-kt:arrow-core:$arrow_version"
+    implementation "io.arrow-kt:arrow-syntax:$arrow_version"
+    kapt    "io.arrow-kt:arrow-meta:$arrow_version"
 }
