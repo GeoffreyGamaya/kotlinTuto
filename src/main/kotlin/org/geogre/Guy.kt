@@ -1,6 +1,6 @@
 package org.geogre
 
-class Guy internal constructor( fname: String, lastName: String) {
+open class Guy internal constructor() {
 
     var fname = ""
     var lastName = ""
@@ -10,7 +10,12 @@ class Guy internal constructor( fname: String, lastName: String) {
         println("create an object ${fname}")
     }
 
-    constructor(fname: String, lastName: String, age: Int) : this(fname, lastName) {
+    constructor(fname: String, lastName: String) : this() {
+        this.fname = fname
+        this.lastName = lastName
+    }
+
+    constructor(fname: String, lastName: String, age: Int) : this() {
         this.fname = fname
         this.lastName = lastName
         this.age = age

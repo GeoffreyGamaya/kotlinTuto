@@ -7,6 +7,10 @@ fun main(args: Array<String>) {
     val guy1 = Guy("geoffrey", "Vincent")
     println(guy1.toString())
 
+    val man1 = Man()
+
+    val man = guy1 as Man
+
     val guy2 = Guy("foo", "bar", 45)
     println(guy2.toString())
 
